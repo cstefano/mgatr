@@ -1,0 +1,42 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.7z binary
+*.bz2 binary
+*.cache binary
+*.deb binary
+*.dll binary
+*.doc* binary
+*.eot binary
+*.exe binary
+*.ez binary
+*.fla binary
+*.flv binary
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.m4a binary
+*.mov binary
+*.mp3 binary
+*.mp4 binary
+*.otf binary
+*.parquet binary
+*.pdb binary
+*.pdf binary
+*.png binary
+*.po binary
+*.ppt* binary
+*.pyc binary
+*.rpm binary
+*.so binary
+*.swf binary
+*.swp binary
+*.tgz binary
+*.ttf binary
+*.wav binary
+*.woff* binary
+*.xls* binary
+*.zip binary
