@@ -1,5 +1,7 @@
 # Migratonator - Database Migration Tool
 
+[![.NET](https://github.com/cstefano/mgatr/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cstefano/mgatr/actions/workflows/dotnet.yml)
+
 _`Migrate - toe - nater`_  (_`EM gatt err`_ for short)
 
 > CLI Tool for managing MSSQL Database schemas, objects and data.
