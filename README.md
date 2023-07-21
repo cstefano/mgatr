@@ -276,8 +276,10 @@ dotnet test
 Run the tool with the `--help` flag to see the available options.
 
 ```bash
-mgatr --help
+dotnet run -- <command-line-arguments>
 ```
+
+Replace `<command-line-arguments>` with the desired arguments. E.g. `--help` to view the help.
 
 ## License
 
