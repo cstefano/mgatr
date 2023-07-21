@@ -143,8 +143,8 @@ _To be completed_
 
 ### Macros
 
-Macros are provided via the `Macros.json` file. Macros are inserted into scripts using
-the `/* %Macro:Name[Parameter1|Parameter2|...|ParameterN%] */` syntax.
+Macros are provided via the `Macros.json` file. Macros are inserted into scripts using the
+`-- %Macro:Name[Parameter1|Parameter2|...|ParameterN]%` syntax.
 
 E.g. Psuedo T-SQL code for a hypothetical `OBJECT` type.
 
