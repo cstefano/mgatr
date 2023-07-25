@@ -4,6 +4,8 @@ namespace Migratonator;
 
 internal class SeedsCommand : BaseCommand
 {
+    // TODO: make well-known directories configurable
+
     // the path to seeds scripts, relative to the base script path
     private const string SeedsPath = "Seeds";
 
@@ -29,6 +31,11 @@ internal class SeedsCommand : BaseCommand
             Console.WriteLine($"WARNING: {qualifiedPath} path not found. Ignoring.");
             return;
         }
+
+        // inject the SeedsPath variable and pre-processor
+        builder = builder
+            .WithVariable("SeedsPath", qualifiedPath)
+            .WithPreprocessor(new SeedsPreprocessor(qualifiedPath));
 
         Apply(builder.Build(), DryRun, Options.Confirm, false);
     }
