@@ -29,8 +29,11 @@ internal class MigrateScriptCommand : BaseCommand
     public override void Perform()
     {
         var builder = CreateUnJournaledMigrator()
-            // configure to run a transaction per script
-            .WithTransactionPerScript();
+            // disable a single transaction since scripts can contain multiple GO statements
+            // which implicitly commit the transaction, and cases such as ALTER DATABASE statements 
+            // don't support nested transactions
+            // if specific transactions are required, they will need to be included in the scripts
+            .WithoutTransaction();
 
         // only add paths which exist
         foreach (var path in ScriptPaths)

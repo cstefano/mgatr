@@ -18,7 +18,10 @@ internal class MigrateUpCommand : BaseCommand
     {
         var builder = CreateJournaledMigrator()
             .WithScripts(new FileSystemScriptProvider(Path.Combine(Options.ScriptsPath, MigrationPath)))
-            // configure to run a transaction per script
+            // disable a single transaction since migrations can contain multiple GO statements
+            // which implicitly commit the transaction, and cases such as ALTER DATABASE statements 
+            // don't support nested transactions
+            // if specific transactions are required, they will need to be included in the scripts
             .WithoutTransaction();
 
         Apply(builder.Build(), DryRun, Options.Confirm);

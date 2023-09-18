@@ -17,7 +17,7 @@ internal class SchemaLoadCommand : BaseCommand
 
         var migrator = CreateUnJournaledMigrator()
             .WithScript(script)
-            // disable transactions since the Schema.sql is broken down with GO statements
+            // disable a single transaction since the Schema.sql is broken down with GO statements
             // which implicitly commit the transaction, and since ALTER DATABASE statements 
             // don't support nested transactions
             .WithoutTransaction()
