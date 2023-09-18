@@ -213,8 +213,6 @@ var commandMigrateUp = new Command(
     "up",
     "Apply the database migrations."
 );
-commandMigrateUp.AddOption(optionVariablesFile);
-commandMigrateUp.AddOption(optionMacrosFile);
 commandMigrateUp.AddOption(optionSchemaFile);
 commandMigrateUp.AddOption(optionDryRun);
 commandMigrateUp.AddOption(optionConfirm);
@@ -229,10 +227,7 @@ var commandMigrateScripts = new Command(
     "scripts",
     "Apply the database scripts."
 );
-commandMigrateScripts.AddOption(optionVariablesFile);
-commandMigrateScripts.AddOption(optionMacrosFile);
 commandMigrateScripts.AddOption(optionSchemaFile);
-commandMigrateScripts.AddOption(optionAssemblyBinariesPath);
 commandMigrateScripts.AddOption(optionDryRun);
 commandMigrateScripts.AddOption(optionConfirm);
 commandMigrateScripts.SetHandler(
@@ -286,7 +281,6 @@ var commandSchemaLoad = new Command(
     "load",
     "Loads the database schema from file into an empty database."
 );
-commandSchemaLoad.AddOption(optionVariablesFile);
 commandSchemaLoad.AddOption(optionConfirm);
 commandSchemaLoad.SetHandler(
     config => { new SchemaLoadCommand(config).Perform(); },
@@ -309,8 +303,6 @@ var commandSeeds = new Command(
     "seeds",
     "Apply the database data seed scripts."
 );
-commandSeeds.AddGlobalOption(optionVariablesFile);
-commandSeeds.AddGlobalOption(optionMacrosFile);
 commandSeeds.AddOption(optionDryRun);
 commandSeeds.AddOption(optionConfirm);
 commandSeeds.SetHandler(
@@ -328,8 +320,6 @@ var commandInit = new Command(
     "init",
     "Initialise a project directory."
 );
-commandSeeds.AddGlobalOption(optionVariablesFile);
-commandSeeds.AddGlobalOption(optionMacrosFile);
 commandSeeds.AddOption(optionConfirm);
 commandSeeds.SetHandler(
     (config) => { new InitialiseCommand(config).Perform(); },
@@ -344,6 +334,9 @@ commandSeeds.SetHandler(
 var rootCommand = new RootCommand($"{Utilities.ToolName} - Database Migration Tool");
 rootCommand.AddGlobalOption(optionConnectionString);
 rootCommand.AddGlobalOption(optionScriptsPath);
+rootCommand.AddGlobalOption(optionVariablesFile);
+rootCommand.AddGlobalOption(optionMacrosFile);
+rootCommand.AddGlobalOption(optionAssemblyBinariesPath);
 rootCommand.AddGlobalOption(optionVerbose);
 rootCommand.AddGlobalOption(optionDebug);
 
